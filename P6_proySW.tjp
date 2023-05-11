@@ -183,7 +183,7 @@ task WMGame "Web & Mobile Game" {
     }    
   }
 
-  task tcloudF "Cloud deployment" {
+  task tcloud "Cloud deployment" {
     purge chargeset
     chargeset cDeployment
     responsible dev5
@@ -191,22 +191,22 @@ task WMGame "Web & Mobile Game" {
     task tGUId "mobile GUI Design" {
       effort 10d
       actual:effort 17d
-      allocate dev4
+      allocate dev5
       journalentry 2023-05-11 "Problems with the GUI design tool" {
-        author dev4
+        author dev5
         alert yellow
-        summary "The tool used for the GUI design has given me a lot of problems. I recommend to look for other one."
+        summary "a"
       }
     }
     task tFEc "Mobile Front End Construction" {
       effort 20d
-      allocate dev2, dev4
-      depends WMGame.tmobF.tGUId
+      allocate dev5
+      depends WMGame.tcloud.tGUId
     }
     task tFEt "Mobile Front End Test" {
       effort 10d
-      allocate dev1
-      depends WMGame.tmobF.tFEc
+      allocate dev5
+      depends WMGame.tcloud.tFEc
     }    
   }
 
