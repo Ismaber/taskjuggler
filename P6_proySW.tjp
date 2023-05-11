@@ -19,7 +19,7 @@ project pSix "Web Game"  2023-03-15 +2.5m {
   # the project reports. If not specified, the current day will be
   # used, but this will likely be outside of the project range, so it
   # can't be seen in the reports.
-  now 2023-04-13-13:00
+  now 2023-04-15-13:00
   # The currency for all money values is the US Dollar.
   currency "EUR"
 
@@ -45,9 +45,8 @@ rate 145.2
 account cost "Project Cost" {
   account manag "Management"
   account wFront "Web Front-End"
-  account back "Back-End"
   account mFront "Mobile Front-End"
-  account cDeployment "Cloud deployment"
+  account back "Back-End"
 }
 account rev "Payments"
 # The Profit&Loss analysis should be rev - cost accounts.
@@ -71,13 +70,6 @@ resource dev3 "Peter Green" {
 }
 resource dev4 "Ismael Berdusán" {
   email "ismael@unizar.es"
-  rate 200
-  workinghours mon - fri 15:00 - 19:00
-  workinghours sat, sun off
-}
-resource dev5 "Manolo" {
-  email "manolo@unizar.es"
-  rate 100
 }
 
 # Now we specify the work packages. The whole project is described as
