@@ -71,6 +71,8 @@ resource dev3 "Peter Green" {
 }
 resource dev4 "Ismael Berdusán" {
   email "ismael@unizar.es"
+  workinghours mon - fri 15:00 - 19:00
+  workinghours sat, sun off
 }
 
 # Now we specify the work packages. The whole project is described as
@@ -277,6 +279,11 @@ textreport frame "" {
     center '<[report id="overview"]>'
   }
 
+  textreport overvi "inicialP" {
+    formats html
+    center '<[report id="inicialP"]>'
+  }
+
   textreport "Status" {
     formats html
     center -8<-
@@ -317,6 +324,22 @@ taskreport overview "" {
   # For this report we like to have the abbreviated weekday in front
   # of the date. %a is the tag for this.
   timeformat "%a %Y-%m-%d"
+  loadunit days
+  hideresource @all
+  balance cost rev
+  caption 'All effort values are in man days.'
+}
+
+taskreport inicialP "" {
+  scenarios plan
+  headline "Inicial plan"
+  columns bsi { title 'WBS' },
+          name, start, end, effort, cost,
+          revenue, chart { ${TaskTip} }
+  # For this report we like to have the abbreviated weekday in front
+  # of the date. %a is the tag for this.
+  timeformat "%a %Y-%m-%d"
+  atart 2023-03-15
   loadunit days
   hideresource @all
   balance cost rev
