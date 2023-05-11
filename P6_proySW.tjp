@@ -46,6 +46,7 @@ account cost "Project Cost" {
   account manag "Management"
   account wFront "Web Front-End"
   account mFront "Mobile Front-End"
+  account cDeployment "Cloud Deployment"
   account back "Back-End"
 }
 account rev "Payments"
@@ -174,6 +175,22 @@ task WMGame "Web & Mobile Game" {
       effort 7d
       allocate dev1
       depends WMGame.tmobF.tFEc
+    }    
+  }
+
+  task tCloud "Cloud deployment" {
+    purge chargeset
+    chargeset cDeployment
+    responsible dev4
+    depends WMGame.tback.tBEd
+    task tFEc "Deployment" {
+      effort 10d
+      allocate dev2, dev4
+    }
+    task tFEt "Cloud Deployment Test" {
+      effort 5d
+      allocate dev1
+      depends WMGame.tCloud.tFEc
     }    
   }
 
